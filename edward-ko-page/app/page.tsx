@@ -1,0 +1,51 @@
+export default function HomePage() {
+  return (
+    <section id="home" className="hero">
+      <div className="hero-content">
+        <div className="avatar-wrapper">
+          <img src="/edward.png" alt="Edward Ko" className="avatar" />
+        </div>
+
+        <div className="hero-text">
+          <p className="eyebrow">
+            Hi, I&apos;m <span className="highlight">Edward Ko</span>.
+          </p>
+
+          <h1>Engineer with a passion for analytics and people</h1>
+
+          <p className="tagline">
+            I love playing with data, exploring machine learning concepts, and
+            designing human-centered interfaces.
+          </p>
+
+          <p className="tagline">
+            Boston University — B.A. in Computer Science, Class of 2026
+          </p>
+
+          {/* Social links */}
+          <div className="social-links">
+            <a
+              href="https://www.linkedin.com/in/edward-ko-b91655260/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src="/icons/linkedin.png" alt="LinkedIn" />
+            </a>
+
+            <a
+              href="https://github.com/Edwardko2004"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src="/icons/github.png" alt="GitHub" />
+            </a>
+
+            <a href="mailto:koedward1019@gmail.com">
+              <img src="/icons/email.png" alt="Email" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

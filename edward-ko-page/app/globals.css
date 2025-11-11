@@ -1,0 +1,481 @@
+:root {
+  color-scheme: dark;
+  --bg: #020617;
+  --accent: #e5e7eb;
+  --text: #e5e7eb;
+  --text-muted: #9ca3af;
+  --border-subtle: rgba(148, 163, 184, 0.25);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Segoe UI", sans-serif;
+  color: var(--text);
+  scroll-behavior: smooth;
+  background: var(--bg);          /* ✅ consistent background everywhere */
+}
+
+/* Layout wrapper */
+.page {
+  max-width: 1000px;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* === NAVBAR === */
+/* === NAVBAR === */
+.nav {
+  position: fixed;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+
+  /* make it invisible background – no pill */
+  background: transparent;
+  backdrop-filter: none;
+  border-radius: 0;
+  border: none;
+  padding: 0;
+  width: auto;
+}
+
+.nav-inner {
+  display: flex;
+  gap: 2rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+}
+
+/* links = plain text, no underline, no box */
+.nav-inner a {
+  position: relative;
+  padding: 0.25rem 0;
+  opacity: 0.9;
+  text-decoration: none;              /* 🔑 removes underline */
+  outline: none;                      /* removes focus outline box */
+  border: none;
+  background: transparent;
+  transition: color 0.25s ease, opacity 0.25s ease;
+}
+
+.nav-inner a:hover {
+  color: var(--accent);
+  opacity: 1;
+}
+
+/* make sure we don't accidentally draw any custom underline */
+.nav-inner a::after {
+  content: none;
+}
+
+
+/* ================= HERO / HOME ================= */
+
+/* Hero takes up the center of the page, but not an endless scroll */
+.hero {
+  flex: 1;
+  min-height: calc(100vh - 160px); /* viewport minus nav + footer space */
+  display: flex;
+  align-items: center;              /* center vertically */
+  justify-content: center;          /* center horizontally */
+  padding-top: 5rem;                /* room for fixed nav */
+  padding-bottom: 2rem;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.75rem;
+  max-width: 800px;
+}
+
+.avatar {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(255, 255, 255, 0.2); /* subtle neutral border */
+  box-shadow: none; /* remove the glow entirely */
+  transition: none;
+}
+
+.avatar:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  letter-spacing: 0.18em;
+  color: var(--text-muted);
+}
+
+.highlight {
+  color: var(--accent);
+}
+
+.hero-text h1 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin: 0.6rem 0 0.3rem;
+  background: linear-gradient(to right, #4cc9f0, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* === SOCIAL ICONS === */
+.social-links {
+  display: flex;
+  gap: 1.25rem;
+  margin-top: 1.2rem;
+}
+
+.social-links a {
+  display: inline-block;
+  width: 34px;
+  height: 34px;
+  opacity: 0.85;
+  transition: transform 0.25s ease, opacity 0.25s ease, filter 0.25s ease;
+}
+
+.social-links a:hover {
+  transform: translateY(-3px);
+  opacity: 1;
+  filter: drop-shadow(0 0 8px rgba(76, 201, 240, 0.6));
+}
+
+.social-links img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+
+.sub {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  margin-top: 0.15rem;
+}
+
+.tagline {
+  max-width: 600px;
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-top: 0.75rem;
+}
+
+/* ================= SECTIONS (Projects / Experience pages) ================= */
+
+.section {
+  padding: 6rem 0 3rem;           /* some space but not crazy tall */
+}
+
+.section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.section-intro {
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+/* Cards for projects */
+.cards {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.5rem;
+}
+
+.card {
+  background: #020617;
+  border-radius: 1rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid rgba(30, 64, 175, 0.6);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+}
+
+.card h3 {
+  margin: 0 0 0.3rem;
+  font-size: 1.15rem;
+}
+
+.card p {
+  margin: 0.25rem 0;
+  font-size: 0.95rem;
+}
+
+.tech {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--accent);
+}
+
+/* Experience timeline */
+.timeline {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.timeline-item {
+  padding: 1rem 1.25rem;
+  border-radius: 0.85rem;
+  border: 1px solid var(--border-subtle);
+  background: #020617;
+  box-shadow: 0 14px 35px rgba(15, 23, 42, 0.85);
+}
+
+.timeline-item h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.05rem;
+}
+
+.where {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.details {
+  margin: 0.6rem 0 0;
+  font-size: 0.95rem;
+}
+
+/* ================= FOOTER ================= */
+
+.footer {
+  padding: 1.5rem 0 2rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: auto;   /* pushes footer to bottom */
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (min-width: 768px) {
+  .hero-content {
+    flex-direction: row;
+    text-align: left;
+    gap: 3rem;
+  }
+
+  .hero-text {
+    max-width: 520px;
+  }
+
+  .hero-text h1 {
+    font-size: 2.9rem;
+  }
+
+  .cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* === EXPERIENCE PAGE === */
+
+.exp-title {
+  font-size: 2rem;
+  background: linear-gradient(to right, #4cc9f0, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+.exp-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.exp-card {
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  padding: 1.5rem 1.75rem;
+  box-shadow: none;
+  transition: none;
+}
+
+.exp-card:hover {
+  transform: none;
+  box-shadow: none;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.exp-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.exp-logo {
+  font-size: 1.8rem;
+}
+
+.exp-card h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+.company {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin: 0.1rem 0 0;
+}
+
+.details {
+  margin-top: 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+@media (min-width: 768px) {
+  .exp-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.exp-logo img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  border-radius: 6px;
+  background-color: #0f172a; /* dark background so logos pop */
+  padding: 4px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* === PROJECTS GRID === */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  background: #020617;
+  border: 1px solid rgba(15, 23, 42, 0.85);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+  cursor: pointer;
+  text-decoration: none; /* no underline on link */
+  color: inherit;
+}
+
+.project-image-wrapper {
+  width: 100%;
+  height: 220px;
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+/* Overlay that fades in on hover */
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.6rem;
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 23, 42, 0.8),
+    rgba(15, 23, 42, 0.95)
+  );
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.project-type {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #a5b4fc;
+}
+
+.project-overlay h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.project-overlay p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.project-link {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--accent);
+}
+
+/* Hover interactions */
+.project-card:hover .project-image {
+  transform: scale(1.05);
+  filter: blur(1px) brightness(0.65);
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Wider screens = 2 columns */
+@media (min-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-image-wrapper {
+    height: 260px;
+  }
+}
+
+/* Really wide = 3 columns if you want later
+@media (min-width: 1100px) {
+  .projects-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+*/
