@@ -1,4 +1,9 @@
+"use client";
+import Typewriter from "./components/Typewriter";
+import { useState } from "react";
+
 export default function HomePage() {
+  const [showSecond, setShowSecond] = useState(false);
   return (
     <section id="home" className="hero">
       <div className="hero-content">
@@ -14,13 +19,17 @@ export default function HomePage() {
           <h1>Engineer with a passion for analytics and people</h1>
 
           <p className="tagline">
-            I love playing with data, exploring machine learning concepts, and
-            designing human-centered interfaces.
+            <Typewriter
+              text="I love playing with data, exploring machine learning concepts, and designing human-centered interfaces."
+              onComplete={() => setShowSecond(true)}
+            />
           </p>
 
-          <p className="tagline">
-            Boston University — B.A. in Computer Science, Class of 2026
-          </p>
+          {showSecond && (
+            <p className="tagline">
+              <Typewriter text="Boston University — B.A. in Computer Science, Class of 2026" />
+            </p>
+          )}
 
           {/* Social links */}
           <div className="social-links">

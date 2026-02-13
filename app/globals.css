@@ -1,11 +1,17 @@
 :root {
-  color-scheme: dark;
-  --bg: #020617;
-  --accent: #e5e7eb;
-  --text: #e5e7eb;
-  --text-muted: #9ca3af;
-  --border-subtle: rgba(148, 163, 184, 0.25);
+  color-scheme: light;
+
+  --bg: #d2e5f8;           /* soft light background */
+  --surface: #ffffff;      /* card background */
+  --accent: #6366f1;       /* warm friendly indigo */
+  --accent-soft: #a5b4fc;
+
+  --text: #0f172a;         /* deep slate instead of black */
+  --text-muted: #64748b;
+
+  --border-subtle: rgba(15, 23, 42, 0.08);
 }
+
 
 *,
 *::before,
@@ -21,7 +27,7 @@ body {
     "Segoe UI", sans-serif;
   color: var(--text);
   scroll-behavior: smooth;
-  background: var(--bg);          /* ✅ consistent background everywhere */
+  background: var(--bg);          /* consistent background everywhere */
 }
 
 /* Layout wrapper */
@@ -34,7 +40,6 @@ body {
   flex-direction: column;
 }
 
-/* === NAVBAR === */
 /* === NAVBAR === */
 .nav {
   position: fixed;
@@ -61,21 +66,24 @@ body {
   color: var(--text-muted);
 }
 
-/* links = plain text, no underline, no box */
 .nav-inner a {
   position: relative;
-  padding: 0.25rem 0;
+
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.5rem;
+
   opacity: 0.9;
-  text-decoration: none;              /* 🔑 removes underline */
-  outline: none;                      /* removes focus outline box */
+  text-decoration: none;
   border: none;
+
   background: transparent;
-  transition: color 0.25s ease, opacity 0.25s ease;
 }
+
 
 .nav-inner a:hover {
   color: var(--accent);
   opacity: 1;
+  background: rgba(255,255,255,0.35);
 }
 
 /* make sure we don't accidentally draw any custom underline */
@@ -136,10 +144,10 @@ body {
   font-size: 2.6rem;
   font-weight: 700;
   margin: 0.6rem 0 0.3rem;
-  background: linear-gradient(to right, #4cc9f0, #a855f7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+
+  color: #4949b1;   /* clean green */
 }
+
 
 /* === SOCIAL ICONS === */
 .social-links {
@@ -173,14 +181,13 @@ body {
 .sub {
   font-size: 1.1rem;
   font-weight: 400;
-  color: var(--text-muted);
+  color: #e2e8f0;
   margin-top: 0.15rem;
 }
 
 .tagline {
   max-width: 600px;
   font-size: 1rem;
-  color: var(--text-muted);
   line-height: 1.6;
   margin-top: 0.75rem;
 }
@@ -201,6 +208,15 @@ body {
   margin-bottom: 1.5rem;
 }
 
+.project-overlay {
+  color: #ffffff; /* or var(--text) if using theme */
+}
+
+.project-card:hover .project-overlay {
+  color: #d3e3ea;
+}
+
+
 /* Cards for projects */
 .cards {
   display: grid;
@@ -219,6 +235,7 @@ body {
 .card h3 {
   margin: 0 0 0.3rem;
   font-size: 1.15rem;
+  
 }
 
 .card p {
@@ -238,6 +255,7 @@ body {
   gap: 1.25rem;
   margin-top: 1rem;
 }
+
 
 .timeline-item {
   padding: 1rem 1.25rem;
@@ -299,9 +317,7 @@ body {
 
 .exp-title {
   font-size: 2rem;
-  background: linear-gradient(to right, #4cc9f0, #a855f7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--accent);
   margin-bottom: 0.5rem;
 }
 
@@ -313,19 +329,22 @@ body {
 }
 
 .exp-card {
-  background: rgba(15, 23, 42, 0.95);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #e6f1fb;   /* use your light card color */
+  border: 1px solid var(--border-subtle);
   border-radius: 1rem;
+
   padding: 1.5rem 1.75rem;
-  box-shadow: none;
-  transition: none;
+
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .exp-card:hover {
-  transform: none;
-  box-shadow: none;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
 }
+
 
 .exp-header {
   display: flex;
@@ -479,3 +498,4 @@ body {
   }
 }
 */
+

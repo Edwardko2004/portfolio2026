@@ -2,6 +2,11 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Inter } from "next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "Edward Ko | Portfolio",
@@ -16,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className={inter.className}>
         <div className="page">
           {/* Global nav */}
           <header className="nav">
@@ -30,7 +35,7 @@ export default function RootLayout({
           <main>{children}</main>
 
           <footer className="footer">
-            <span>© 2025 Edward Ko</span>
+            <span>© 2026 Edward Ko</span>
           </footer>
         </div>
       </body>

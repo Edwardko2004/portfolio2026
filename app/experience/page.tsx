@@ -1,6 +1,13 @@
 export default function ExperiencePage() {
   const experiences = [
     {
+      title: "Machine Learning Scientist Intern",
+      company: "GranteAide",
+      description:
+        "Built and productionized a RAG-based AI agent using FAISS vector search and embedding pipelines. Designed and shipped full-stack product features integrating backend APIs, GCP, and ML inference, improving user workflow efficiency and reducing manual grant review time.",
+      logo: "https://media.licdn.com/dms/image/v2/D560BAQEf48MqbWWtMw/company-logo_100_100/company-logo_100_100/0/1712014669738/diyversity_logo?e=1772668800&v=beta&t=PsBgUGqaZa7m1ahYb3d6kVB22P7ttMzRDiYy8D8rNLY", // example placeholder
+    },
+    {
       title: "Data Engineering/Analyst Intern",
       company: "Chefler Foods / Mike's Amazing Foods (2024)",
       description:
