@@ -1,7 +1,7 @@
 export default function ExperiencePage() {
   const experiences = [
     {
-      title: "Machine Learning Scientist Intern",
+      title: "AI Software Engineer Intern",
       company: "GranteAide",
       description:
         "Built and productionized a RAG-based AI agent using FAISS vector search and embedding pipelines. Designed and shipped full-stack product features integrating backend APIs, GCP, and ML inference, improving user workflow efficiency and reducing manual grant review time.",
